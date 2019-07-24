@@ -4,52 +4,83 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>7月22日</title>
+    <title>スケジュール&基本情報</title>
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
   </head>
+
   <body>
-    <h1>7月22日の予定</h1>
-    <p><strong>7月22日</strong>のスケジュールを<em>以下の表</em>に示す。</p>
-    <ul>
-      <li><b>12時まで</b></li>
-      html/cssの演習
-      <li><b>12~13時</b></li>
-      ランチ
-      <li><b>15時まで</b></li>
-      html/cssの演習
-      <li><b>16時半まで</b></li>
-      GOXメール対応
-      <li><b>17時半まで</b></li>
-      会議
-    </ul>
-    <dl>
-      <dt>ランチ</dt>
-      <dd>基本時間は1時間</dd>
-    </dl>
+    <div class="wraper">
+      <header id="header">
+        <h2>スケジュール</h2>
+        <nav id="nav">
+          <ul>
+            <li><a href="">nav1</a></li>
+            <li><a href="">nav2</a></li>
+            <li><a href="">nav3</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- /#header -->
 
-    <p>＊スケジュールはあくまでも予定であることを留意</p>
-    <!-- <h1>7月23日の予定</h1> -->
-    <h2>基本情報</h2>
-    <table border="1">
-      <tr>
-        <th>氏名</th>
-        <td>安藤 圭吾(アンドウ ケイゴ)</td>
-      </tr>
-      <tr>
-        <th>生年月日</th>
-        <td>1996年11月20日</td>
-      </tr>
-      <tr>
-        <th>出身地</th>
-        <td>大阪府茨木市</td>
-      </tr>
-      <tr>
-        <th></th>
-        <td></td>
-      </tr>
-    </table>
+      <section class="main">
+        <h3>7月23日の予定</h3>
+        <p><strong>7月23日</strong>のスケジュールを<em>以下の表</em>に示す。</p>
+        <ul>
+          <li class="text1"><b>12時まで</b></li>
+          <p>html/cssの演習</p>
+          <li class="text1"><b>12~13時</b></li>
+          <p>ランチ</p>
+          <li class="text1"><b>15時まで</b></li>
+          <p>html/cssの演習</p>
+          <li class="text1"><b>17時半まで</b></li>
+          <p>GOXメール対応</p>
+        </ul>
+        <dl>
+          <dt>ランチ</dt>
+          <dd>基本時間は1時間</dd>
+        </dl>
 
-    <p><a href="https://www.facebook.com/keigando">facebookはこちら</a></p>
+        <p>＊スケジュールはあくまでも予定であることを留意</p>
+      </section>
+      <!-- <h1>7月23日の予定</h1> -->
+      <!-- /#main -->
+
+      <div id="info">
+        <h2>information</h2>
+        <div id="img1">
+          <img
+            src="imgs/IMG_7200.jpg"
+            width="128"
+            height="180"
+            alt="プロフィール写真"
+          />
+        </div>
+        <div id="table1">
+          <h3 class="info_heading">基本情報</h3>
+          <table border="1" class="info_table">
+            <tr>
+              <th>氏名</th>
+              <td>安藤 圭吾(アンドウ ケイゴ)</td>
+            </tr>
+            <tr>
+              <th>生年月日</th>
+              <td>1996年11月20日</td>
+            </tr>
+            <tr>
+              <th>出身地</th>
+              <td>大阪府茨木市</td>
+            </tr>
+            <tr>
+              <th></th>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <p><a href="https://www.facebook.com/keigando">facebookはこちら</a></p>
+
+      <footer id="footer"><p>安藤圭吾(c)copy right</p></footer>
+    </div>
   </body>
 </html>
