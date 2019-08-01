@@ -4,28 +4,34 @@
     <meta charset="utf-8" />
     <title>Vue.js App</title>
     <link href="main.css" rel="stylesheet" />
+    <style src="vue.js"></style>
   </head>
   <body>
     <div id="app">
+      <!-- app -->
       <div class="content">...</div>
       <div v-on:click="scrollTop">
         ページ上部へ移動
       </div>
-      <!-- <header v-bind:class="{compact:scrollY}">
+      <header v-bind:class="{compact:scrollY}">
         200pxより下にスクロールしたら.compactを付与
-      </header> -->
-      <p ref="Hello">hello</p>
+      </header>
       <!-- この#appの内側にテンプレートを書き込んでいく -->
       <!-- <input v-model="message" />
-      <p>{{ message.value }}</p>
-      <p>{{ message.value.length }}</p>
-      <p>
-        {{ list[1] }}
-      </p>
-      <br />
-      <ol>
-        <li v-for="item in list">{{ item }}</li>
-      </ol> -->
+        <p>{{ message.value }}</p>
+        <p>{{ message.value.length }}</p>
+        <p>
+          {{ list[1] }}
+        </p>
+        <br />
+        <ol>
+          <li v-for="item in list">{{ item }}</li>
+        </ol> -->
+      <!-- <img
+          src="/Users/keigando/code/index/vue/img/dolma.png"
+          v-on:load="show=true"
+          v-bind:class="{hide: !show}"
+        /> -->
       <ul>
         <li>name</li>
         <input v-model="name" />
@@ -45,11 +51,6 @@
       </ul>
       <button v-on:click="handleClick">カウントアップ</button>
       <span ref="count">0</span>
-      <!-- <img
-        src="/Users/keigando/code/index/vue/img/dolma.png"
-        v-on:load="show=true"
-        v-bind:class="{hide: !show}"
-      /> -->
       <div v-on:click="handler('div1')">
         div1
         <a href="#top" v-on:click.stop="handler('div2')">div2</a>
@@ -78,11 +79,19 @@
           {{ item.name }}{{ item.price }}円
         </li>
       </ul>
+      180度は{{ 180 | radian | round }}ラジアン
     </div>
-
+    <!-- #app -->
+    <!-- コンポーネント -->
+    <div id="components-demo">
+      <my-component></my-component>
+      <button-counter></button-counter>
+    </div>
+    <!-- #コンポーネント -->
     <h1>最下部</h1>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@12.1.5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

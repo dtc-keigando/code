@@ -1,6 +1,8 @@
 var app = new Vue({
   el: "#app",
   data: {
+    valueA: "これは子A",
+    valueB: "これは子B",
     message: "hello",
     // list: ["りんご", "バナナ", "いちご"]
     num: 1,
@@ -8,7 +10,7 @@ var app = new Vue({
     val1: "",
     val2: "Z",
     preview: "",
-    name: "キマイラ",
+    name: "キメラ",
     hp: 600,
     scrollY: 0,
     budget: 300,
@@ -47,6 +49,14 @@ var app = new Vue({
       return this.sorted.slice(0, this.limit);
     }
   },
+  filters: {
+    round: function(val) {
+      return Math.round(val * 100) / 100;
+    },
+    radian: function(val) {
+      return (val * Math.PI) / 180;
+    }
+  },
 
   // created: function() {
   //   axios
@@ -65,11 +75,14 @@ var app = new Vue({
       var max = this.list.reduce(function(a, b) {
         return a > b.id ? a : b.id;
       }, 0);
+      if (!this.name || !this.hp) {
+        return;
+      }
       //新しいモンスターを追加
       this.list.push({
         id: max + 1,
-        name: this.name,
-        hp: this.hp
+        name: this.name.trim(),
+        hp: this.hp.trim()
       });
     },
     doRemove: function(index) {
@@ -113,3 +126,16 @@ var app = new Vue({
     console.log(this.$refs.Hello);
   }
 });
+Vue.component("my-component", {
+  template: "<p>MyComponent</p>"
+});
+Vue.component("button-counter", {
+  data: function() {
+    return {
+      count: 0
+    };
+  },
+  template:
+    '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+});
+new Vue({ el: "#components-demo" });
