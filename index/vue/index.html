@@ -25,7 +25,7 @@
         </p>
         <br />
         <ol>
-          <li v-for="item in list">{{ item }}</li>
+          <li v-for="item in list">{{ item }}</li>∫
         </ol> -->
       <!-- <img
           src="/Users/keigando/code/index/vue/img/dolma.png"
@@ -84,8 +84,10 @@
     <!-- #app -->
     <!-- コンポーネント -->
     <div id="components-demo">
-      <my-component></my-component>
-      <button-counter></button-counter>
+      <button-counter>
+        <my-component></my-component>
+      </button-counter>
+      <my-parent></my-parent>
     </div>
     <!-- #コンポーネント -->
     <h1>最下部</h1>

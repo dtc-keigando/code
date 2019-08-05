@@ -1,3 +1,5 @@
+// import Vue from "vue";
+// import MarkdownPanel from "./components/MarkdownPanel.vue";
 var app = new Vue({
   el: "#app",
   data: {
@@ -125,6 +127,9 @@ var app = new Vue({
   mounted: function() {
     console.log(this.$refs.Hello);
   }
+  // component: {
+  //   MarkdownPanel
+  // }
 });
 Vue.component("my-component", {
   template: "<p>MyComponent</p>"
@@ -138,4 +143,33 @@ Vue.component("button-counter", {
   template:
     '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
 });
-new Vue({ el: "#components-demo" });
+Vue.component("my-parent", {
+  template: "<child v-on:set='do1'></child>",
+  data: function() {
+    return {
+      a: 5
+    };
+  },
+  methods: {
+    do1: function() {
+      alert("クリックされました");
+    }
+  }
+});
+Vue.component("child", {
+  template: "<p><button @click='click'>ボタン</button></p>",
+  // <p>子コンポーネントis {{val1}} {{val2}}></p>
+  props: {
+    val1: String,
+    val2: Number
+  },
+  methods: {
+    click: function() {
+      this.$emit("set");
+    }
+  }
+});
+
+new Vue({
+  el: "#components-demo"
+});
