@@ -4,22 +4,94 @@
     <meta charset="utf-8" />
     <title>Vue.js App</title>
     <link href="main.css" rel="stylesheet" />
+    <style src="vue.js"></style>
   </head>
   <body>
     <div id="app">
+      <!-- app -->
+      <div class="content">...</div>
+      <div v-on:click="scrollTop">
+        ページ上部へ移動
+      </div>
+      <header v-bind:class="{compact:scrollY}">
+        200pxより下にスクロールしたら.compactを付与
+      </header>
       <!-- この#appの内側にテンプレートを書き込んでいく -->
+      <!-- <input v-model="message" />
+        <p>{{ message.value }}</p>
+        <p>{{ message.value.length }}</p>
+        <p>
+          {{ list[1] }}
+        </p>
+        <br />
+        <ol>
+          <li v-for="item in list">{{ item }}</li>
+        </ol> -->
+      <!-- <img
+          src="/Users/keigando/code/index/vue/img/dolma.png"
+          v-on:load="show=true"
+          v-bind:class="{hide: !show}"
+        /> -->
+      <ul>
+        <li>name</li>
+        <input v-model="name" />
+        <li>hp</li>
+        <input v-model="hp" />
+      </ul>
+      <button v-on:click="doAdd">モンスターの追加</button>
+      <ul>
+        <li v-for="(item, index) in list" v-bind:key="item.id">
+          ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+          <button v-on:click="doRemove(index)">
+            モンスターを削除
+          </button>
+          <span v-if="item.hp < 50">瀕死状態!</span>
+          <button id="attack" v-on:click="doAttack(index)">攻撃する</button>
+        </li>
+      </ul>
+      <button v-on:click="handleClick">カウントアップ</button>
+      <span ref="count">0</span>
+      <div v-on:click="handler('div1')">
+        div1
+        <a href="#top" v-on:click.stop="handler('div2')">div2</a>
+      </div>
       <input v-model="message" />
-      <p>{{ message.value }}</p>
-      <p>{{ message.value.length }}</p>
-      <p>
-        {{ list[1] }}
-      </p>
-      <br />
-      <ol>
-        <li v-for="item in list">{{ item }}</li>
-      </ol>
+      <p>{{ message }}</p>
+      <label> <input type="checkbox" v-model="val" />{{ val }} </label>
+      <label> <input type="radio" value="a" v-model="val1" />A </label>
+      <label> <input type="radio" value="b" v-model="val1" />B </label>
+      <label> <input type="radio" value="c" v-model="val1" />C </label>
+      <p>{{ val1 }}</p>
+      <select v-model="val2">
+        <option disabled="disabled">選択してください</option>
+        <option value="a">A</option>
+        <option value="b">B</option>
+      </select>
+      <input type="file" v-on:change="handleChange" />
+      <div v-if="preview"><img v-bind:src="preview" /></div>
+      <br /><br />
+      <input v-model.number="budget" />円以下に絞り込む
+      <input v-model.number="limit" />件を表示
+      <button v-on:click="order=!order">切り換え</button>
+      <p>{{ matched.length }}件中{{ limited.length }}件を表示中</p>
+      <ul>
+        <li v-for="item in limited" v-bind:key="item.id">
+          {{ item.name }}{{ item.price }}円
+        </li>
+      </ul>
+      180度は{{ 180 | radian | round }}ラジアン
     </div>
+    <!-- #app -->
+    <!-- コンポーネント -->
+    <div id="components-demo">
+      <my-component></my-component>
+      <button-counter></button-counter>
+    </div>
+    <!-- #コンポーネント -->
+    <h1>最下部</h1>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/smooth-scroll@12.1.5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.5/lodash.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

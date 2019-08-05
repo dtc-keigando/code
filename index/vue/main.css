@@ -1,0 +1,18 @@
+#app ul button {
+  color: white;
+  background-color: red;
+}
+button {
+  color: red;
+}
+/* #attack {
+  color: white;
+  background-color: red;
+} */
+img {
+  opacity: 1;
+  transition: opacity 1s;
+}
+img.hide {
+  opacity: 0;
+}
